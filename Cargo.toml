@@ -1,0 +1,35 @@
+[package]
+name = "tokio-frames"
+version = "0.1.0"
+authors = ["Tyr Chen <tyr.chen@gmail.com>"]
+edition = "2018"
+license = "MIT"
+documentation = "https://docs.rs/"
+repository = "https://github.com/tyrchen/"
+homepage = "https://github.com/tyrchen/"
+description = """
+Tokio frame support for various non-serde serialization libraries.
+"""
+readme = "README.md"
+categories = ["development-tools"]
+keywords = []
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+protobuf = ["prost"]
+archive = ["rkyv"]
+
+[dependencies]
+bytes = "1"
+educe = "0.4"
+futures = "0.3"
+pin-project = "1"
+prost = { version = "0.7", optional = true }
+rkyv = { version = "0.4", optional = true }
+
+[dev-dependencies]
+impls = "1"
+tokio = { version = "1", features = ["full"] }
+tokio-util = { version = "0.6", features = ["codec"] }
+tokio-frames = { path = ".", features = ["protobuf", "archive"] }
