@@ -7,6 +7,8 @@
 //! TBD
 
 // pub mod archive;
+
+#[cfg(feature = "protobuf")]
 pub mod protobuf;
 
 use bytes::{Bytes, BytesMut};
